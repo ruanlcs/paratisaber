@@ -1,0 +1,62 @@
+---
+title: ParaTISaber
+description: Plataforma aberta e gratuita de estudos de TI e Informatica, em portugues, para estudantes e curiosos de todos os niveis.
+template: splash
+hero:
+  tagline: Conhecimento de TI e Informatica aberto e gratuito, em portugues, para quem quer aprender.
+  actions:
+    - text: Comecar pelos conceitos de nuvem
+      link: /nuvem/
+      icon: right-arrow
+      variant: primary
+    - text: Ver no GitHub
+      link: https://github.com/seu-usuario/paratisaber
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## O que e o ParaTISaber
+
+O **ParaTISaber** reune, de forma organizada e gratuita, os principais temas de
+Tecnologia da Informacao e Informatica. A ideia e simples: deixar o conhecimento
+aberto para quem quer aprender, do iniciante ao avancado, sem depender apenas de
+cursos e livros pagos.
+
+Serve para estudantes, autodidatas, profissionais em transicao de carreira e,
+tambem, para quem estuda para concursos ou certificacoes.
+
+<CardGrid stagger>
+  <Card title="Computação em Nuvem" icon="cloud-download">
+    Conceitos, características essenciais, modelos de serviço (IaaS, PaaS, SaaS)
+    e modelos de implantação.
+    [Começar](/nuvem/)
+  </Card>
+  <Card title="Programacao" icon="seti:python">
+    Logica de programacao, Python e linguagem R.
+    [Comecar](/programacao/logica/)
+  </Card>
+  <Card title="Analise de Informacoes" icon="bars">
+    Fluencia de dados, governanca, mineracao e metricas.
+    [Comecar](/analise/fluencia-de-dados/)
+  </Card>
+  <Card title="Banco de Dados" icon="seti:db">
+    Modelagem relacional e principais SGBDs.
+    [Comecar](/banco-de-dados/modelagem-relacional/)
+  </Card>
+  <Card title="BI, DW e Big Data" icon="puzzle">
+    Business Intelligence, Data Warehouse, Hadoop e Spark.
+    [Comecar](/big-data/)
+  </Card>
+  <Card title="Machine Learning e PLN" icon="rocket">
+    Fundamentos de aprendizado de maquina e processamento de linguagem natural.
+    [Comecar](/machine-learning/)
+  </Card>
+</CardGrid>
+
+## Como contribuir
+
+Este e um projeto de conhecimento aberto. Qualquer pessoa pode sugerir correcoes,
+melhorar explicacoes ou adicionar novos topicos. Cada pagina tem um link de
+"Editar" que leva direto ao repositorio.
