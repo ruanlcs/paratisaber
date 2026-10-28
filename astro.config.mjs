@@ -24,12 +24,12 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/seu-usuario/paratisaber',
+          href: 'https://github.com/ruanlcs/paratisaber',
         },
       ],
       // Mensagem de "edite esta pagina" apontando para o repo (ajuste depois).
       editLink: {
-        baseUrl: 'https://github.com/seu-usuario/paratisaber/edit/main/',
+        baseUrl: 'https://github.com/ruanlcs/paratisaber/edit/main/',
       },
       // Estrutura da barra lateral, baseada em topicos.md.
       sidebar: [
