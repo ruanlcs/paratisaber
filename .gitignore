@@ -18,3 +18,5 @@ pnpm-debug.log*
 # macOS / Windows
 .DS_Store
 Thumbs.db
+# notas pessoais de deploy (nao publicar no repositorio)
+DEPLOY.md

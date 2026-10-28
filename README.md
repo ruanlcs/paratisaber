@@ -56,4 +56,7 @@ astro.config.mjs       # titulo, idioma e barra lateral (sidebar)
 
 ## Publicar (deploy gratuito)
 
-Veja o passo a passo em [DEPLOY.md](./DEPLOY.md).
+O site e estatico (pasta `dist/`), entao pode ser hospedado de graca em
+Cloudflare Pages, Netlify, Vercel ou GitHub Pages. O fluxo recomendado e conectar
+a plataforma a este repositorio: ela roda `npm run build` e publica o resultado
+a cada `git push`.
