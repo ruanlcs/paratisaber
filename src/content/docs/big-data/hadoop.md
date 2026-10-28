@@ -3,13 +3,13 @@ title: Hadoop
 description: Fundamentos do Apache Hadoop - HDFS, MapReduce e YARN.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
-- O que e o Apache Hadoop
+- O que é o Apache Hadoop
 - HDFS (Hadoop Distributed File System)
 - MapReduce (modelo de processamento)
 - YARN (gerenciamento de recursos)

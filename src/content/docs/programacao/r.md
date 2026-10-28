@@ -3,13 +3,13 @@ title: Linguagem R
 description: Introducao a linguagem R para estatistica e analise de dados.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
-- O que e R e quando usar
+- O que é R e quando usar
 - Vetores, data frames e fatores
 - Estatistica descritiva
 - Pacotes: tidyverse, ggplot2

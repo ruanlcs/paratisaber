@@ -3,13 +3,13 @@ title: Mineracao de dados
 description: Conceitos de data mining, tarefas e tecnicas.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
-- O que e mineracao de dados (data mining)
+- O que é mineracao de dados (data mining)
 - Processo KDD (Knowledge Discovery in Databases)
 - Tarefas: classificacao, regressao, agrupamento, associacao
 - Tecnicas e algoritmos classicos

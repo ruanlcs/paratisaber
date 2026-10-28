@@ -3,11 +3,11 @@ title: Big Data
 description: Conceitos de Big Data, os Vs e o ecossistema Hadoop e Spark.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## O que e Big Data
+## O que é Big Data
 
 Big Data se refere a conjuntos de dados tao grandes, rapidos ou variados que os
 sistemas tradicionais nao conseguem processar de forma eficiente.

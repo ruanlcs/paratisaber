@@ -3,11 +3,11 @@ title: Modelagem relacional
 description: Modelo relacional, chaves, normalizacao e relacionamentos.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
 - Modelo entidade-relacionamento (MER) e DER
 - Tabelas, tuplas e atributos

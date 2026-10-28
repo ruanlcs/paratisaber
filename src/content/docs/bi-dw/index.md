@@ -3,13 +3,13 @@ title: BI e Data Warehouse
 description: Business Intelligence, Data Warehouse, ETL, OLAP e modelagem dimensional.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
-- O que e Business Intelligence (BI)
+- O que é Business Intelligence (BI)
 - Data Warehouse (DW) x banco transacional (OLTP)
 - Processo ETL (Extract, Transform, Load)
 - OLAP e cubos de dados

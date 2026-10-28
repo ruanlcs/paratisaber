@@ -3,11 +3,11 @@ title: Python
 description: Introducao a linguagem Python para iniciantes e analise de dados.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
 - Sintaxe basica e tipos de dados
 - Estruturas de controle e funcoes

@@ -3,13 +3,13 @@ title: Machine Learning
 description: Fundamentos de aprendizado de maquina - tipos de aprendizado, algoritmos e avaliacao.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
-- O que e aprendizado de maquina
+- O que é aprendizado de maquina
 - Aprendizado supervisionado, nao supervisionado e por reforco
 - Algoritmos: regressao, arvores de decisao, k-means, KNN
 - Treino, validacao e teste

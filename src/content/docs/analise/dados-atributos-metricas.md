@@ -1,13 +1,13 @@
 ---
-title: Dados, atributos e metricas
-description: Diferenca entre dados, atributos e metricas na analise de informacoes.
+title: Dados, atributos e métricas
+description: Diferença entre dados, atributos e métricas na análise de informações.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página é um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
 - Dado, informacao e conhecimento
 - Tipos de atributos (qualitativos e quantitativos)

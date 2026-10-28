@@ -3,13 +3,13 @@ title: Principais SGBDs
 description: Panorama dos principais sistemas gerenciadores de banco de dados.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
-- O que e um SGBD
+- O que é um SGBD
 - Relacionais: PostgreSQL, MySQL, Oracle, SQL Server
 - NoSQL: MongoDB, Redis, Cassandra
 - Linguagem SQL (DDL, DML, DCL, DQL)

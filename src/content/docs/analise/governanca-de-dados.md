@@ -3,13 +3,13 @@ title: Governanca de dados
 description: Fundamentos de governanca de dados - qualidade, seguranca e politicas.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
-- O que e governanca de dados
+- O que é governanca de dados
 - Qualidade de dados
 - Papeis: data owner, data steward
 - Privacidade e LGPD

@@ -3,8 +3,8 @@ title: Logica de programacao
 description: Fundamentos de logica de programacao - algoritmos, variaveis, estruturas de controle.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
 ## O que voce vai encontrar aqui

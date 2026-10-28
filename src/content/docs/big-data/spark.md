@@ -3,13 +3,13 @@ title: Spark
 description: Fundamentos do Apache Spark - processamento em memoria e comparacao com Hadoop.
 ---
 
-:::caution[Conteudo em construcao]
-Esta pagina e um esqueleto inicial. Contribuicoes sao bem-vindas.
+:::caution[Conteúdo em construção]
+Esta página e um esqueleto inicial. Contribuições são bem-vindas.
 :::
 
-## Topicos planejados
+## Tópicos planejados
 
-- O que e o Apache Spark
+- O que é o Apache Spark
 - Processamento em memoria (por que e mais rapido que MapReduce)
 - RDD, DataFrame e Dataset
 - Componentes: Spark SQL, Spark Streaming, MLlib
