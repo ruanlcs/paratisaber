@@ -11,6 +11,19 @@ export default defineConfig({
       title: 'ParaTISaber',
       description:
         'Plataforma aberta e gratuita de estudos de TI e Informatica, em portugues, para estudantes e curiosos de todos os niveis.',
+      // Favicon do site (arquivo em public/).
+      favicon: '/favicon.svg',
+      // Icones extras: .ico (navegadores antigos) e apple-touch-icon (iOS).
+      head: [
+        {
+          tag: 'link',
+          attrs: { rel: 'icon', href: '/favicon.ico', sizes: '32x32' },
+        },
+        {
+          tag: 'link',
+          attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        },
+      ],
       // Idioma padrao do site.
       defaultLocale: 'root',
       locales: {
