@@ -13,7 +13,7 @@ export default defineConfig({
         'Plataforma aberta e gratuita de estudos de TI e Informatica, em portugues, para estudantes e curiosos de todos os niveis.',
       // Favicon do site (arquivo em public/).
       favicon: '/favicon.svg',
-      // Icones extras: .ico (navegadores antigos) e apple-touch-icon (iOS).
+      // Icones extras e imagem de compartilhamento (Open Graph / Twitter).
       head: [
         {
           tag: 'link',
@@ -22,6 +22,33 @@ export default defineConfig({
         {
           tag: 'link',
           attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        },
+        // Imagem que aparece ao compartilhar o link (WhatsApp, LinkedIn, etc.).
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image', content: 'https://paratisaber.com.br/og-image.png' },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:width', content: '1200' },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:height', content: '630' },
+        },
+        {
+          tag: 'meta',
+          attrs: { name: 'twitter:image', content: 'https://paratisaber.com.br/og-image.png' },
+        },
+        // Cloudflare Web Analytics (estatisticas de visitas, sem cookies).
+        // O token e um identificador publico de front-end, nao um segredo.
+        {
+          tag: 'script',
+          attrs: {
+            type: 'module',
+            src: 'https://static.cloudflareinsights.com/beacon.min.js',
+            'data-cf-beacon': '{"token": "b6c733f1e96f4b9fb655fb1a96b0f669"}',
+          },
         },
       ],
       // Idioma padrao do site.
@@ -49,6 +76,10 @@ export default defineConfig({
         {
           label: 'Inicio',
           link: '/',
+        },
+        {
+          label: 'Sobre',
+          link: '/sobre/',
         },
         {
           label: 'Computação em Nuvem',
