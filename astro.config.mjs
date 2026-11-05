@@ -111,6 +111,7 @@ export default defineConfig({
         {
           label: 'Banco de Dados',
           items: [
+            { label: 'Introdução a banco de dados', link: '/banco-de-dados/introducao/' },
             { label: 'Modelagem relacional', link: '/banco-de-dados/modelagem-relacional/' },
             { label: 'Principais SGBDs', link: '/banco-de-dados/sgbds/' },
           ],
