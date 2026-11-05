@@ -1,0 +1,209 @@
+---
+title: Hadoop
+description: O que é o Apache Hadoop, como funciona (HDFS, MapReduce e YARN), exemplos, diagramas, aplicações reais, revisão e exercícios.
+---
+
+import Mermaid from '../../../components/Mermaid.astro';
+
+O **Apache Hadoop** é um framework open source que permite **armazenar e
+processar grandes volumes de dados** distribuídos por vários computadores
+comuns, trabalhando juntos como se fossem um só. Foi ele que popularizou o
+processamento de [Big Data](/big-data/) e segue sendo uma referência fundamental
+na área.
+
+## Conceitos fundamentais
+
+Para entender o Hadoop, três ideias são essenciais:
+
+- **Processamento distribuído:** em vez de uma única máquina superpoderosa (e
+  cara), o Hadoop divide o trabalho entre muitas máquinas comuns (um *cluster*).
+- **Tolerância a falhas:** como máquinas comuns falham, o Hadoop replica os dados.
+  Se uma máquina cai, os dados continuam disponíveis em outras.
+- **Mover o processamento até o dado:** em vez de trazer os dados até o programa
+  (lento, quando são terabytes), o Hadoop envia o programa até onde o dado já
+  está. Isso reduz muito o tráfego de rede.
+
+:::note
+A grande sacada do Hadoop é usar **hardware barato em grande quantidade** em vez
+de um servidor caríssimo. Dez máquinas comuns custam menos que um supercomputador
+e, juntas, processam mais — desde que o software saiba coordená-las. É aí que o
+Hadoop entra.
+:::
+
+## Como funciona: os três componentes
+
+O Hadoop se apoia em três peças principais. Pense nelas como **armazenamento**,
+**processamento** e **coordenação**.
+
+<Mermaid code={`flowchart TD
+    subgraph Cluster Hadoop
+        Y["YARN<br/>(gerencia os recursos)"]
+        subgraph Armazenamento
+            H["HDFS<br/>(guarda os dados em blocos)"]
+        end
+        subgraph Processamento
+            M["MapReduce<br/>(processa os dados)"]
+        end
+        Y --> M
+        M <--> H
+    end
+`} />
+
+### 1. HDFS — o armazenamento
+
+O **HDFS (Hadoop Distributed File System)** é o sistema de arquivos distribuído.
+Ele quebra arquivos grandes em **blocos** e os espalha pelas máquinas do cluster,
+replicando cada bloco (por padrão, **3 cópias**) para tolerar falhas.
+
+Ele usa uma arquitetura **mestre-escravo**:
+
+- **NameNode (mestre):** sabe onde cada bloco está guardado. É o "índice" do
+  sistema.
+- **DataNodes (escravos):** guardam de fato os blocos de dados.
+
+<Mermaid code={`flowchart TD
+    A["Arquivo de 300 MB"] --> B["Dividido em blocos de 128 MB"]
+    B --> C["Bloco 1"]
+    B --> D["Bloco 2"]
+    B --> E["Bloco 3"]
+    C --> N1["DataNode A"]
+    C --> N2["DataNode B"]
+    D --> N2
+    D --> N3["DataNode C"]
+    E --> N1
+    E --> N3
+`} />
+
+O diagrama mostra a ideia: cada bloco fica em **mais de uma** máquina. Se o
+DataNode A falhar, os blocos 1 e 3 ainda existem em B e C.
+
+### 2. MapReduce — o processamento
+
+O **MapReduce** é o modelo de processamento original do Hadoop. Ele resolve
+problemas em duas fases:
+
+- **Map:** cada máquina processa a sua parte dos dados e gera pares
+  **chave → valor**.
+- **Reduce:** os resultados são agrupados pela chave e combinados no resultado
+  final.
+
+### 3. YARN — a coordenação
+
+O **YARN (Yet Another Resource Negotiator)** é o gerente de recursos do cluster.
+Ele decide qual máquina executa cada tarefa e distribui CPU e memória, garantindo
+que os trabalhos não briguem pelos mesmos recursos.
+
+## Exemplo: contar palavras
+
+O exemplo clássico do MapReduce é **contar quantas vezes cada palavra aparece**
+em um texto gigante. Suponha a frase dividida entre duas máquinas:
+
+- Máquina 1 recebe: `"o gato e o rato"`
+- Máquina 2 recebe: `"o rato e o queijo"`
+
+<Mermaid code={`flowchart LR
+    T1["o gato e o rato"] --> Map1["Map 1"]
+    T2["o rato e o queijo"] --> Map2["Map 2"]
+    Map1 --> P1["o:1, gato:1, e:1, o:1, rato:1"]
+    Map2 --> P2["o:1, rato:1, e:1, o:1, queijo:1"]
+    P1 --> R["Reduce<br/>(agrupa por palavra)"]
+    P2 --> R
+    R --> F["o:4, e:2, rato:2,<br/>gato:1, queijo:1"]
+`} />
+
+Na fase **Map**, cada máquina conta as palavras do seu pedaço. Na fase
+**Reduce**, as contagens da mesma palavra são somadas. O resultado final: "o"
+aparece 4 vezes, "e" e "rato" 2 vezes cada, e assim por diante.
+
+## Situações reais
+
+O Hadoop é usado quando o volume de dados é grande demais para uma única máquina:
+
+- **Análise de logs:** empresas com milhões de acessos diários processam os logs
+  de servidores para entender comportamento e detectar problemas.
+- **Recomendação:** plataformas de streaming e e-commerce cruzam o histórico de
+  milhões de usuários para sugerir conteúdo ou produtos.
+- **Processamento de dados científicos:** genômica, astronomia e climatologia
+  lidam com conjuntos de dados enormes.
+- **Data lakes:** o HDFS serve de repositório central para dados brutos de várias
+  fontes, antes de serem refinados.
+
+## Aplicações
+
+Entender Hadoop é base para:
+
+- **Engenharia de dados** — construir pipelines que movem e transformam grandes
+  volumes.
+- **Big Data e análise** — o Hadoop é peça central do ecossistema (veja
+  [Big Data](/big-data/)).
+- **Integração com o [Spark](/big-data/spark/)** — é muito comum rodar o Spark
+  usando o HDFS do Hadoop como armazenamento.
+
+## Revisão
+
+- O **Hadoop** processa grandes volumes de dados distribuindo o trabalho por um
+  cluster de máquinas comuns, com tolerância a falhas.
+- **HDFS** = armazenamento (quebra arquivos em blocos replicados, modelo
+  NameNode/DataNodes).
+- **MapReduce** = processamento em duas fases (Map gera pares chave-valor; Reduce
+  agrupa e combina).
+- **YARN** = gerenciamento de recursos do cluster.
+- O princípio-chave é **levar o processamento até o dado**, não o contrário.
+
+## Exercícios
+
+Tente responder antes de abrir o gabarito.
+
+**1.** Quais são os três componentes principais do Hadoop e qual a função de cada
+um?
+
+<details>
+<summary>Ver resposta</summary>
+
+- **HDFS:** armazenamento distribuído (guarda os dados em blocos replicados).
+- **MapReduce:** processamento dos dados (fases Map e Reduce).
+- **YARN:** gerenciamento dos recursos do cluster.
+
+</details>
+
+**2.** No HDFS, por que cada bloco de dados é replicado em mais de uma máquina?
+
+<details>
+<summary>Ver resposta</summary>
+
+Para **tolerância a falhas**: como o cluster usa máquinas comuns, que podem
+falhar, manter cópias do bloco em máquinas diferentes garante que os dados
+continuem disponíveis mesmo se uma máquina cair.
+
+</details>
+
+**3.** No exemplo de contar palavras, o que acontece na fase **Map** e o que
+acontece na fase **Reduce**?
+
+<details>
+<summary>Ver resposta</summary>
+
+Na fase **Map**, cada máquina processa o seu pedaço do texto e gera pares
+chave-valor (cada palavra com contagem 1). Na fase **Reduce**, as contagens da
+mesma palavra são agrupadas e somadas, produzindo o total de cada palavra.
+
+</details>
+
+**4.** Explique com suas palavras o princípio de "mover o processamento até o
+dado".
+
+<details>
+<summary>Ver resposta</summary>
+
+Em vez de transferir grandes volumes de dados pela rede até onde está o programa
+(o que seria lento), o Hadoop envia o programa de processamento até a máquina
+onde o dado já está armazenado. Isso reduz o tráfego de rede e acelera o
+processamento.
+
+</details>
+
+## Referências
+
+- [Documentação oficial do Apache Hadoop](https://hadoop.apache.org/docs/stable/)
+- White, T. *Hadoop: The Definitive Guide*. O'Reilly.
+- [Apache Hadoop — HDFS Architecture](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)

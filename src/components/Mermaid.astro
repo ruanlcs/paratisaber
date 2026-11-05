@@ -1,0 +1,82 @@
+---
+/**
+ * Componente de diagrama Mermaid, renderizado no navegador (client-side).
+ *
+ * Uso em paginas .mdx:
+ *   import Mermaid from '../../../components/Mermaid.astro';
+ *   <Mermaid code={`flowchart TD; A-->B`} />
+ *
+ * Nao adiciona dependencias de build: o mermaid.js e carregado via CDN
+ * apenas no navegador do visitante, respeitando o tema claro/escuro.
+ */
+interface Props {
+  /** Codigo do diagrama em sintaxe Mermaid. */
+  code: string;
+}
+
+const { code } = Astro.props;
+---
+
+<pre class="mermaid not-content" set:text={code}></pre>
+
+<script>
+  // Carrega o mermaid do CDN uma unica vez e renderiza todos os diagramas,
+  // escolhendo o tema conforme o modo claro/escuro do Starlight.
+  async function renderMermaid() {
+    const nodes = document.querySelectorAll('pre.mermaid');
+    if (nodes.length === 0) return;
+
+    const { default: mermaid } = await import(
+      'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'
+    );
+
+    const isDark =
+      document.documentElement.dataset.theme === 'dark';
+
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      fontFamily: 'inherit',
+    });
+
+    // Guarda o codigo original para poder re-renderizar ao trocar o tema.
+    nodes.forEach((el) => {
+      const node = el as HTMLElement;
+      if (!node.dataset.source) {
+        node.dataset.source = node.textContent ?? '';
+      }
+      // Reseta o conteudo e o estado para o mermaid processar de novo.
+      node.removeAttribute('data-processed');
+      node.textContent = node.dataset.source;
+    });
+
+    await mermaid.run({ nodes: Array.from(nodes) as HTMLElement[] });
+  }
+
+  // Render inicial.
+  renderMermaid();
+
+  // Re-render ao navegar (Astro view transitions) e ao trocar tema.
+  document.addEventListener('astro:after-swap', renderMermaid);
+
+  const observer = new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      if (m.attributeName === 'data-theme') {
+        renderMermaid();
+        break;
+      }
+    }
+  });
+  observer.observe(document.documentElement, { attributes: true });
+</script>
+
+<style>
+  pre.mermaid {
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 1rem 0;
+    overflow-x: auto;
+  }
+</style>
